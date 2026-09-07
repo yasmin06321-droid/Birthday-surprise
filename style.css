@@ -1,0 +1,66 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#ff6f91;--rose:#e94f76;--cream:#fff8f5;--ink:#392735;
+  --soft:#fff0f4;--gold:#d49a45;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:Poppins,sans-serif;color:var(--ink);
+  background:linear-gradient(135deg,#fff8f5 0%,#ffeef5 48%,#fff9ef 100%);
+  overflow-x:hidden;
+}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:20}
+.sparkles{position:fixed;inset:0;pointer-events:none;opacity:.45;z-index:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px}
+main{position:relative;z-index:1}
+.hero{min-height:100vh;display:grid;place-items:center;padding:28px 18px;position:relative}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.55;z-index:-1}
+.hero:before{width:280px;height:280px;background:#ffd1df;top:6%;left:-100px}
+.hero:after{width:340px;height:340px;background:#ffe3b7;right:-140px;bottom:5%}
+.hero-card{
+  width:min(850px,100%);text-align:center;padding:64px 35px 45px;
+  background:rgba(255,255,255,.68);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.9);border-radius:36px;
+  box-shadow:0 25px 80px rgba(106,47,75,.12);
+}
+.tiny{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#9a6379;margin-bottom:25px}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:12px}
+h1,h2{font-family:"Playfair Display",serif}
+h1{font-size:clamp(3.4rem,9vw,7.3rem);line-height:.94;color:#4b293c}
+h1 span{color:var(--rose);font-style:italic}
+.hero-text{max-width:650px;margin:27px auto 30px;line-height:1.9;color:#6f5864;font-size:1rem}
+button{font:600 1rem Poppins,sans-serif;border:0;cursor:pointer}
+.surprise-btn,.confetti-btn{padding:14px 25px;border-radius:999px;background:linear-gradient(135deg,#ef5f86,#d9446d);color:white;box-shadow:0 12px 25px rgba(217,68,109,.25);transition:.25s}
+button:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(217,68,109,.3)}
+.surprise{display:none;max-width:610px;margin:25px auto 0;padding:20px 25px;background:#fff7fa;border:1px dashed #f2a1b8;border-radius:22px;line-height:1.8}
+.surprise.show{display:block;animation:pop .5s ease}
+.scroll{margin-top:38px;font-size:.75rem;color:#a48b95;letter-spacing:.08em}
+section{padding:95px 7vw}
+.message-section{text-align:center}
+h2{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:38px}
+.message-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.message-card{padding:32px 25px;background:rgba(255,255,255,.72);border-radius:25px;border:1px solid #fff;box-shadow:0 15px 45px rgba(90,40,60,.08)}
+.message-card span{font-size:2rem}.message-card h3{font-family:"Playfair Display",serif;font-size:1.5rem;margin:13px 0 9px}.message-card p{font-size:.92rem;line-height:1.8;color:#725f69}
+.gallery-section{text-align:center;background:rgba(255,255,255,.32)}
+.section-note{color:#806d77;margin:-20px auto 35px;max-width:650px}
+.gallery{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photo{background:white;padding:9px;border-radius:20px;box-shadow:0 15px 40px rgba(65,35,50,.12);transform:rotate(var(--r));transition:.35s;overflow:hidden}
+.photo:nth-child(1){--r:-1.5deg}.photo:nth-child(2){--r:1.2deg}.photo:nth-child(3){--r:-.7deg}.photo:nth-child(4){--r:1deg}.photo:nth-child(5){--r:-1deg}.photo:nth-child(6){--r:.7deg}
+.photo:hover{transform:rotate(0) translateY(-7px) scale(1.02)}
+.photo img{display:block;width:100%;height:360px;object-fit:cover;border-radius:14px}
+.photo.large{grid-row:span 2}.photo.large img{height:738px}
+figcaption{font-family:Caveat,cursive;font-size:1.35rem;padding:9px 3px 4px;color:#714457}
+.wish-section{display:grid;place-items:center}
+.wish-card{max-width:850px;text-align:center;padding:60px 45px;background:linear-gradient(145deg,#fff,#fff3f6);border:1px solid #ffd6e1;border-radius:35px;box-shadow:0 25px 70px rgba(120,45,80,.12)}
+.cake{font-size:4rem;margin-bottom:12px;animation:float 3s ease-in-out infinite}
+.wish-card p:not(.eyebrow):not(.signature){line-height:1.95;color:#6e5b65;margin:0 auto 22px}
+.signature{font-family:Caveat,cursive;font-size:1.9rem;color:#c04468;margin:25px 0}
+footer{text-align:center;padding:35px 20px;color:#997f8a;font-size:.85rem}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes float{50%{transform:translateY(-9px)}}
+@media(max-width:760px){
+  .hero-card{padding:48px 20px 35px;border-radius:25px}
+  .message-grid,.gallery{grid-template-columns:1fr}
+  .photo.large{grid-row:auto}.photo img,.photo.large img{height:430px}
+  section{padding:70px 18px}
+  .wish-card{padding:45px 23px}
+}
